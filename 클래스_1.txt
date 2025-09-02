@@ -1,0 +1,153 @@
+
+예제 1: 가장 기본적인 클래스 정의
+목표: 클래스 선언, 객체 생성, public 멤버 변수 사용
+
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    string name;
+    int age;
+};
+
+int main() {
+    Student s;
+    s.name = "Alice";
+    s.age = 20;
+
+    cout << "Name: " << s.name << endl;
+    cout << "Age: " << s.age << endl;
+
+    return 0;
+}
+
+
+
+예제 2: 멤버 함수 추가
+목표: 클래스에 멤버 함수 추가, 함수 호출
+
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    string name;
+    int age;
+
+    void introduce() {
+        cout << "Hi, I'm " << name << " and I'm " << age << " years old." << endl;
+    }
+};
+
+int main() {
+    Student s;
+    s.name = "Bob";
+    s.age = 22;
+    s.introduce();
+
+    return 0;
+}
+
+
+예제 3: 생성자(Constructor) 사용
+목표: 생성자의 개념 및 초기화
+
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    string name;
+    int age;
+
+    // 생성자
+    Student(string n, int a) {
+        name = n;
+        age = a;
+    }
+
+    void introduce() {
+        cout << "My name is " << name << ", I'm " << age << "." << endl;
+    }
+};
+
+int main() {
+    Student s("Charlie", 19);
+    s.introduce();
+
+    return 0;
+}
+
+
+
+예제 4: private 멤버와 getter/setter
+목표: 접근제한자, 캡슐화, 정보은닉
+
+
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int age;
+
+public:
+    void setInfo(string n, int a) {
+        name = n;
+        age = a;
+    }
+
+    void printInfo() {
+        cout << "Student: " << name << ", Age: " << age << endl;
+    }
+};
+
+int main() {
+    Student s;
+    s.setInfo("Diana", 21);
+    s.printInfo();
+
+    return 0;
+}
+
+
+
+
+예제 5: 클래스 안에 조건 포함 (논리 포함)
+목표: 멤버 함수에 로직 추가 (성적 판단 등)
+
+
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int score;
+
+public:
+    Student(string n, int s) {
+        name = n;
+        score = s;
+    }
+
+    void evaluate() {
+        cout << name << "'s score is " << score << ". ";
+        if (score >= 90) cout << "Grade: A" << endl;
+        else if (score >= 80) cout << "Grade: B" << endl;
+        else if (score >= 70) cout << "Grade: C" << endl;
+        else cout << "Grade: F" << endl;
+    }
+};
+
+int main() {
+    Student s1("Eve", 85);
+    Student s2("Frank", 65);
+    s1.evaluate();
+    s2.evaluate();
+
+    return 0;
+}
+
